@@ -3,19 +3,19 @@ package main
 
 import (
 	"github.com/astaxie/beego/orm"
+	"github.com/astaxie/beego/toolbox"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/mattn/go-sqlite3"
-	"time"
-	"github.com/astaxie/beego/toolbox"
 	"math/rand"
+	"time"
 )
 
 type User struct {
 	Id           int
-	Name         string `orm:"size(100)"`
-	UserName     string  `orm:"size(100);unique"`
-	PassWord     string `orm:"site(100)"`
-	Test         string `orm:"null"`
+	Name         string    `orm:"size(100)"`
+	UserName     string    `orm:"size(100);unique"`
+	PassWord     string    `orm:"site(100)"`
+	Test         string    `orm:"null"`
 	RegisterTime time.Time `orm:"auto_now_add;type(datetime)"`
 }
 
@@ -48,6 +48,5 @@ func main() {
 	})
 	toolbox.AddTask("tk1", tk1)
 	toolbox.StartTask()
-	select {
-	}
+	select {}
 }
